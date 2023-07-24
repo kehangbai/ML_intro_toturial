@@ -15,12 +15,6 @@ from tqdm import tqdm
 import yaml
 
 import os
-import logging
-
-log = logging.getLogger("run")
-
-# Turn off matplotlib DEBUG messages
-plt.set_loglevel(level="warning")
 
 class Model(nn.Module):
     def __init__(self, 
@@ -184,7 +178,7 @@ class Classifier():
                 if early_stop:
                     early_stopping(mean_val_loss)
 
-                log.debug(f"Epoch: {epoch} - loss: {mean_loss} - val loss: {mean_val_loss}")
+                # print(f"Epoch: {epoch} - loss: {mean_loss} - val loss: {mean_val_loss}")
                     
             if early_stop:
                 if early_stopping.early_stop:
